@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<title>下载页面</title>
+	<link rel="stylesheet" type="text/css" href="../../../static/css/mui.min.css" />
+	<link rel="stylesheet" type="text/css" href="../../../static/css/common.css" />
+	<link rel="stylesheet" type="text/css" href="css/appdownpage.css" />
+</head>
+
+<body>
+
+	<header class="nav-bar-ui  nav-bar-gradient">
+		<div class="back-item" id="backitem">
+			<img src="../../../static/img/back_white.png" id="backitem" />
+		</div>
+		<div class="bar-title">下载</div>
+	</header>
+
+	<div class="wrap-content">
+		<span> 一、请直接点击如下按钮，进行下载安装。</span>
+
+		<div class="android-donwload" id="android-id">
+			<a href=" " id="as-id" style="display: block;">
+				<img src="../../../static/img/android.png" />
+				<span>安卓版下载安装</span>
+			</a>
+		</div>
+		<div class="android-donwload" id="ios-id">
+			<a href="" id="io-id" style="display: block;">
+				<img src="../../../static/img/ios.png" />
+				<span>苹果版下载安装</span>
+			</a>
+		</div>
+	</div>
+	<div class="wrap-main">
+		<a>二、下载<span style="color: #FB2C2C">π系统</span>App，注册成为合伙人，使您快速拥有自己的店铺。</a>
+	</div>
+
+	<script type="text/javascript" src="../../../static/js/jquery-3.3.1.js" charset="UTF-8"></script>
+	<script src="../../../static/js/mui.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="../../../static/js/common.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript" charset="UTF-8">
+		$('#backitem').on('click', function () {
+			window.history.go(-1);
+		})
+
+
+		$('#android-id').click(function () {
+			if (mui.os.android) {
+				$('#as-id').attr('href', 'http://219.148.3.184:8000/wechat-server/appdownload/HB_PAI.apk');
+			} else {
+				$.toast('android平台下安装');
+			}
+
+		})
+		$('#ios-id').click(function () {
+			if (mui.os.ios) {
+				$('#io-id').attr('href',
+					'itms-services://?action=download-manifest&amp;url=https://raw.githubusercontent.com/cqdoor/IOS/master/HB_PAI_TEST.plist'
+				);
+			} else {
+				$.toast('ios平台下安装');
+			}
+		})
+	</script>
+
+</body>
+
+</html>
